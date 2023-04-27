@@ -1,0 +1,34 @@
+.cart-item-list {
+
+    padding: 10px;
+}
+
+.cart-item-list .total {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.total h4 {
+    flex: 1 0 auto;
+}
+
+.total .amount {
+    flex: 0 0 auto;
+    font-weight: bold;
+}
+
+.cart-item-list .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+.order-button {
+    background-color: coral;
+    color: azure;
+}

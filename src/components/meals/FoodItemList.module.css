@@ -1,0 +1,10 @@
+.food-list {
+    background-color: azure;
+    width: 70%;
+    margin: 25px 0;
+    padding: 50px;
+}
+
+.food-list hr {
+    margin: 12px 0 12px 0;
+}

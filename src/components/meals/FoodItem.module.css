@@ -1,0 +1,54 @@
+.food-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.food-item .overview {
+    flex: 1 1 auto;
+}
+
+.food-item .action {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.overview, .action {
+    text-align: left;
+    vertical-align: center;
+}
+
+.action label {
+    font-weight: bold;
+    padding: 0 10px 0 0;
+}
+
+.action input {
+    width: 50px;
+}
+
+
+.action button {
+    text-align: center;
+    margin: 10px 0 0 0;
+    align-self: flex-end;
+}
+
+.name {
+    color: darkgray;
+    margin-top: 0;
+}
+.description {
+    font-style: italic;
+    font-weight: lighter;
+}
+.price {
+    font-weight: bold;
+    color: coral;
+}
+
+.button {
+    background-color: coral;
+}

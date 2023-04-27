@@ -1,0 +1,40 @@
+.cart-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cart-item .title {
+    flex: 1 1 auto;
+}
+
+.cart-item .action {
+    flex: 0 0 auto;
+}
+
+.title h5 {
+    margin-top: 0;
+}
+
+.title .price {
+    font-size: 13px;
+    font-weight: bold;
+    color: coral;
+    display: inline-block;
+    width: 80px;
+}
+
+.title .amount {
+    border: 1px solid rgba(160, 160, 200, .85);
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.action .button {
+    border-radius: 3px;
+    margin: 1px;
+    background-color: transparent;
+    color: coral;
+    font-weight: bold;
+    font-size: medium;
+}
