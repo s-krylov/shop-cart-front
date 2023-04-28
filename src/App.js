@@ -15,7 +15,7 @@ function App() {
 
     return (
         <Fragment>
-            <Header title="Stepan's Demo shop"/>
+            <Header title="Your Demo shop"/>
             <Main/>
             {showCart &&
                 (<Dialog onClose={onCloseHandler}>
