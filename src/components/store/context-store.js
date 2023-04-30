@@ -1,4 +1,4 @@
-import {createContext, useState, useReducer} from "react";
+import {createContext, useState, useReducer, useEffect} from "react";
 
 const ContextStore = createContext({
     products: [],
@@ -9,7 +9,16 @@ const ContextStore = createContext({
     setShowCart: showCart => {}
 });
 
-const cartReducer = (cart, {type, data}) => {
+
+const storedCartReducer = wrapped => {
+    return (state, event) => {
+        const result = wrapped(state, event);
+        localStorage.setItem("cart", JSON.stringify(result));
+        return result;
+    }
+}
+
+const cartReducer = storedCartReducer((cart, {type, data}) => {
     switch (type) {
         case "ADD_TO_CART": {
             const product = cart.find(item => item.id === data.id);
@@ -31,10 +40,13 @@ const cartReducer = (cart, {type, data}) => {
             }
             break;
         }
+        case "IMPORT_ITEMS": {
+            return [...data];
+        }
         default:
             throw new Error(`Not supported type ${type}`);
     }
-}
+});
 
 export const ContextStoreProvider = ({children}) => {
 
@@ -58,6 +70,15 @@ export const ContextStoreProvider = ({children}) => {
     const [showCart, setShowCart] = useState(false);
     const [cart, cartDispatcher] = useReducer(cartReducer, []);
 
+    useEffect(() => {
+        const storedCartItems = localStorage.getItem("cart");
+        if (storedCartItems) {
+            cartDispatcher({
+                type: "IMPORT_ITEMS",
+                data: JSON.parse(storedCartItems)
+            });
+        }
+    }, []);
 
     return (
         <ContextStore.Provider value={{
